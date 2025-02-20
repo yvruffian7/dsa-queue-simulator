@@ -1,0 +1,15 @@
+#include "queue.h"
+#include <iostream>
+
+
+template <typename T> void Queue<T>::enqueue(const T &value) {
+  elements.push_back(value);
+}
+
+template <typename T> bool Queue<T>::empty() { return elements.empty(); }
+
+template <typename T> void Queue<T>::dequeue() {
+  if (!empty()) {
+    elements.erase(elements.begin());
+  }
+}
