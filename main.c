@@ -10,3 +10,29 @@
 #include <stdexcept>
 #include <string>
 
+namespace GameVariable {
+constexpr int WindowHeight = 720;
+constexpr int WindowLength = 1280;
+constexpr int TextPixel = 30;
+
+} // namespace GameVariable
+
+App::App()
+    : m_window("Traffic Simulator", GameVariable::WindowLength,
+               GameVariable::WindowHeight) {
+
+  if (TTF_Init() < 0) {
+    throw std::runtime_error(SDL_GetError());
+  }
+
+  m_font = TTF_OpenFont("../assets/fonts/DaddyTimeMonoNerdFontMono-Regular.ttf",
+                        GameVariable::TextPixel);
+  if (!m_font) {
+    throw std::runtime_error(SDL_GetError());
+  }
+
+  m_text = std::make_unique<Text>(m_window.renderer(), m_font);
+  m_text->setText("Traffic Simulator", SDL_Color{255, 255, 255, 255});
+
+  // Initialize other sub system
+}
