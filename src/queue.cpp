@@ -19,3 +19,11 @@ template <typename T> const T& Queue<T>::front() const {
     return elements.front();
   }
 }
+
+template<typename  T> void Queue<T>::printQueue() const {
+  for (const T& element: elements) {
+    std::cout << element << "";
+  }
+  std::cout << "\n";
+}
+
