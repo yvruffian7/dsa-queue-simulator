@@ -48,3 +48,24 @@ void App::run() {
     render();
   }
 }
+
+void App::process_event() {
+  SDL_Event event;
+  while (SDL_PollEvent(&event)) {
+    if (event.type == SDL_EVENT_QUIT) {
+      m_running = false;
+    }
+  }
+}
+
+void App::update() {}
+void App::render() {
+
+  m_window.clear();
+
+  m_text->render(20, 30);
+
+  // Rendering code goes here
+  m_window.present();
+}
+
