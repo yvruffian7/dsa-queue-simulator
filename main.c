@@ -36,3 +36,15 @@ App::App()
 
   // Initialize other sub system
 }
+
+App::~App() {
+  // Clean up
+}
+
+void App::run() {
+  while (m_running) {
+    process_event();
+    update();
+    render();
+  }
+}
