@@ -69,3 +69,21 @@ void App::render() {
   m_window.present();
 }
 
+int main(int argc, const char *argv[]) {
+
+  (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS));
+
+  TTF_Font *font =
+      TTF_OpenFont("../assets/fonts/DaddyTimeMonoNerdFontMono-Regular.ttf", 10);
+  try {
+    App app;
+    app.run();
+
+  } catch (const std::exception &e) {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Error: %s\n", e.what());
+  }
+
+  SDL_Quit();
+  return 0;
+}
+
