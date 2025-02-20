@@ -14,3 +14,8 @@ template <typename T> void Queue<T>::dequeue() {
   }
 }
 
+template <typename T> const T& Queue<T>::front() const {
+  if (!empty()) {
+    return elements.front();
+  }
+}
