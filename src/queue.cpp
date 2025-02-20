@@ -13,3 +13,4 @@ template <typename T> void Queue<T>::dequeue() {
     elements.erase(elements.begin());
   }
 }
+
