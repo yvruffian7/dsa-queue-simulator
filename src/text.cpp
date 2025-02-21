@@ -25,3 +25,4 @@ void Text::setText(const std::string& text, SDL_Color color){
     m_color = color;
     createTexture();
 }
+
