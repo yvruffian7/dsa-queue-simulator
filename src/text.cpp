@@ -9,3 +9,19 @@ Text::Text(SDL_Renderer *renderer, TTF_Font *font)
     throw std::runtime_error("Invalid renderer or font");
   }
 }
+
+Text::~Text() { destroyTexture(); }
+
+void Text::setText(const std::string& text, SDL_Color color){
+    if (m_text == text &&
+        m_color.r == color.r &&
+        m_color.g == color.g &&
+        m_color.b == color.b &&
+        m_color.a == color.a) {
+        return; // No change needed
+    }
+
+    m_text = text;
+    m_color = color;
+    createTexture();
+}
