@@ -60,3 +60,9 @@ void Text::createTexture() {
     }
 }
 
+void Text::destroyTexture() {
+    if (m_texture) {
+        SDL_DestroyTexture(m_texture);
+        m_texture = nullptr;
+    }
+}
