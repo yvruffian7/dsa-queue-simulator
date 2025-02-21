@@ -26,3 +26,37 @@ void Text::setText(const std::string& text, SDL_Color color){
     createTexture();
 }
 
+void Text::render(int x, int y) const {
+    if (!m_texture) return;
+
+    SDL_FRect dstRect = {
+        static_cast<float>(x),
+        static_cast<float>(y),
+        static_cast<float>(m_width),
+        static_cast<float>(m_height)
+    };
+
+    SDL_RenderTextureRotated(m_renderer, m_texture, nullptr, &dstRect, 0.0, nullptr, SDL_FLIP_NONE);
+}
+
+void Text::createTexture() {
+    destroyTexture();
+
+    if (m_text.empty()) return;
+
+    SDL_Surface* surface = TTF_RenderText_Blended(m_font, m_text.c_str(), m_text.size(), m_color);
+    if (!surface) {
+        throw std::runtime_error(SDL_GetError());
+    }
+
+    m_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+    m_width = surface->w;
+    m_height = surface->h;
+
+    SDL_DestroySurface(surface);
+
+    if (!m_texture) {
+        throw std::runtime_error(SDL_GetError());
+    }
+}
+
