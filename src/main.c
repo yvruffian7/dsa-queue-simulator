@@ -110,3 +110,33 @@ int main(int argc, char *argv[]) {
             free(newVehicle);
             lastVehicleSpawn = currentTime;
         }
+        for (int i = 0; i < MAX_VEHICLES; i++) {
+            if (vehicles[i].active) {
+                updateVehicle(&vehicles[i], lights);
+
+                // Check if vehicle has passed through intersection
+                if (!vehicles[i].active) {
+                    stats.vehiclesPassed++;
+                    vehicleCount--;
+                }
+            }
+        }
+
+        // Update traffic lights
+        updateTrafficLights(lights);
+
+        // Update statistics
+        float minutes = (SDL_GetTicks() - stats.startTime) / 60000.0f;
+        if (minutes > 0) {
+            stats.vehiclesPerMinute = stats.vehiclesPassed / minutes;
+        }
+
+        renderSimulation(renderer, vehicles, lights, &stats);
+
+        SDL_Delay(16); // Cap at ~60 FPS
+    }
+    //cleaning up window and renderer frr
+
+    cleanupSDL(window, renderer);
+    return 0;
+}
