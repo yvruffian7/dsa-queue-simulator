@@ -13,3 +13,9 @@ void initializeSDL(SDL_Window **window, SDL_Renderer **renderer) {
     SDL_SetRenderDrawColor(*renderer, 144, 238, 144, 255); // Light blue
  
 }
+
+void cleanupSDL(SDL_Window *window, SDL_Renderer *renderer) {
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
