@@ -502,7 +502,7 @@ void updateVehicle(Vehicle *vehicle, TrafficLight *lights)
 
 void renderRoads(SDL_Renderer *renderer)
 {
-    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255); // Gray color for roads
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Gray color for roads
 
     // Draw the intersection
     SDL_Rect intersection = {INTERSECTION_X - LANE_WIDTH, INTERSECTION_Y - LANE_WIDTH, LANE_WIDTH * 2, LANE_WIDTH * 2};
