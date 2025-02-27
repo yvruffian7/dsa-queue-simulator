@@ -19,3 +19,12 @@ void cleanupSDL(SDL_Window *window, SDL_Renderer *renderer) {
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
+
+void handleEvents(bool *running) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) { 
+        if (event.type == SDL_QUIT) {
+            *running = false;
+        }
+    }
+}
