@@ -66,3 +66,4 @@ void Text::destroyTexture() {
         m_texture = nullptr;
     }
 }
+//hi
