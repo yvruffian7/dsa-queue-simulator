@@ -1,25 +1,22 @@
-# 🚦 Traffic Queue Simulator
+ Traffic Queue Simulator
 
-A real-time traffic simulation showcasing queue data structures & traffic management. Includes multiple vehicle types, traffic lights, and priority-based queue handling.
+A real-time traffic simulation demonstrating queue data structures and traffic control. Features various vehicle types, traffic signals, and priority-based queue management.
 
-![Traffic Simulation Demo](demo.gif)
+![Traffic Simulation Demo]
 
 ## ✨ Features
 
-- 🏎️ Real-time 4-way intersection simulation
-- 🚓🚑🚒 Multiple vehicle types with priority handling
-- 🚦 Dynamic traffic light system
-- 🔄 Vehicles can turn left, or go straight
-- 🎯 Queue-based traffic management
+- Real-time 4-way intersection simulation
+- Multiple vehicle types with priority handling
+- Dynamic traffic light system
+- Vehicles can turn left, or go straight
+- Queue-based traffic management
 
-## ⚙️ Prerequisites
+Prerequisites
+- GCC/G++ compiler
+- SDL2 library
 
-You'll need:
-- 🖥️ GCC/G++ compiler
-- 🎮 SDL2 library
-- 🏗️ MinGW (for Windows)
-
-### 🛠 Installing SDL2
+🛠 Installing SDL2
 
 #### Windows Users:
 1. 🔗 [Download SDL2](https://www.libsdl.org/download-2.0.php)
@@ -29,18 +26,8 @@ You'll need:
    - `lib/` (for library files)
    - `bin/` (for output)
 
-## 📂 Project Structure
 
-```
-DSA-Queue-Simulator/
-├── include/          # Header files
-├── lib/              # Library files
-├── src/              # Source files
-├── bin/              # Executables
-└── README.md
-```
-
-## 🏗️ Building the Project
+ Building the Project
 
 1. Clone the repo:
 ```bash
